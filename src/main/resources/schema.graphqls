@@ -1,0 +1,60 @@
+# 'auth' directive restricts logic of selected fields for unauthenticated user
+directive @auth on FIELD_DEFINITION
+directive @login on FIELD_DEFINITION
+directive @logout on FIELD_DEFINITION
+
+type Query {
+    allFlights: [Flight] @auth
+    allMaintenances: [Maintenance] @auth
+    allPlanes: [Plane] @auth
+    allWithInterface: [DbEntity] @auth
+    allWithUnion: [EntityUnion] @auth
+}
+
+type Mutation {
+    login(credentials: CredentialsInput!): String @login
+    logout: Boolean @logout
+
+    addFlight(dateTime: String!, direction: String!, planeId: String!): Flight @auth
+    addMaintenance(date: String!, result: String!, planeId: String!): Maintenance @auth
+    addPlane(model: String!, owner: String!): Plane @auth
+
+    dropFlights: Boolean @auth
+    dropMaintenances: Boolean @auth
+    dropPlanes: Boolean @auth
+}
+
+"""
+Basic interface for all persisted entities.
+This comment can be requested by introspection: {__type(name: "DbEntity"){ description }}
+"""
+interface DbEntity {
+    id: ID! #the field in interface guarantees that children will provide this field
+}
+
+type Flight implements DbEntity {
+    id: ID!
+    dateTime: String!
+    direction: String!
+    planeId: String!
+}
+
+type Maintenance implements DbEntity {
+    id: ID!
+    date: String!
+    result: String!
+    planeId: String!
+}
+
+type Plane implements DbEntity {
+    id: ID!
+    model: String!
+    owner: String!
+}
+
+union EntityUnion = Flight | Maintenance | Plane
+
+input CredentialsInput {
+    username: String!
+    password: String!
+}

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="index.js"></script>
+    <link rel="stylesheet" type="text/css" href="index.css">
+</head>
+
+<body>
+
+<div class="queryArea">
+    <h3>GraphQL query</h3>
+    <textarea id="query" rows="30"></textarea>
+    <br/>
+    <input type="button" onclick="submitQuery()" value="Submit">
+
+    <br/><br/>
+
+    <table>
+        <tr>
+            <td>Auth:</td>
+            <td>
+                <span onclick="addSampleToQueryField('login')">Login</span>,
+                <span onclick="addSampleToQueryField('logout')">Logout</span>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <td>Planes:</td>
+            <td>
+                <span onclick="addSampleToQueryField('allPlanes')">List</span>,
+                <span onclick="addSampleToQueryField('addPlane')">Add</span>,
+                <span onclick="addSampleToQueryField('dropPlanes')">Truncate</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Flights:</td>
+            <td>
+                <span onclick="addSampleToQueryField('allFlights')">List</span>,
+                <span onclick="addSampleToQueryField('addFlight')">Add</span>,
+                <span onclick="addSampleToQueryField('dropFlights')">Truncate</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Maintenances:</td>
+            <td>
+                <span onclick="addSampleToQueryField('allMaintenances')">List</span>,
+                <span onclick="addSampleToQueryField('addMaintenance')">Add</span>,
+                <span onclick="addSampleToQueryField('dropMaintenances')">Truncate</span>
+            </td>
+        </tr>
+    </table>
+    <br/>
+    <table>
+        <tr>
+            <td>Fragments:</td>
+            <td>
+                <span onclick="addSampleToQueryField('allWithInterface')">With Interfaceds</span>,
+                <span onclick="addSampleToQueryField('allWithUnion')">With Unions</span>
+            </td>
+        </tr>
+        <tr>
+            <td>Meta:</td>
+            <td>
+                <span onclick="addSampleToQueryField('metaTypes')">Types</span>,
+                <span onclick="addSampleToQueryField('metaQueries')">Queries</span>,
+                <span onclick="addSampleToQueryField('metaMutations')">Mutations</span>
+            </td>
+        </tr>
+    </table>
+
+</div>
+
+<div class="resultArea">
+    <h3>Query result</h3>
+    <textarea id="result" rows="50"></textarea>
+</div>
+
+</body>
+
+</html>

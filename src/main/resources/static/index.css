@@ -1,0 +1,55 @@
+html, body
+{
+    width: 100%;
+    height: 100%;
+
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex;
+    flex-wrap: nowrap;
+}
+
+
+.queryArea {
+    flex: 1 1 40%;
+    margin: 10px;
+}
+
+.resultArea {
+    flex: 1 1 60%;
+    margin: 10px;
+}
+
+textarea {
+    width: 100%;
+}
+
+ul li {
+    list-style-type: none;
+}
+
+.querySampleLinks {
+    margin: 0;
+}
+
+.querySampleLinks li {
+    display: inline;
+}
+
+td {
+    padding:5px;
+}
+
+tr td:first-child {
+    font-weight: bold;
+    width: 105px;
+}
+
+tr td:last-child span {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+}
