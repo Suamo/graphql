@@ -20,15 +20,6 @@ import java.util.TreeSet;
 @RestController
 public class Controller {
 
-    public static void main(String[] args) {
-        Set<Integer> set = new TreeSet<>();
-        set.add(3);
-        set.add(1);
-        set.add(2);
-        System.out.println(((TreeSet<Integer>) set).first());
-        System.out.println(set.toArray()[0]);
-    }
-
     @Autowired
     private GraphQL graphql;
 
